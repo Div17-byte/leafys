@@ -1,0 +1,37 @@
+<div class="wrapper">
+<mat-card>
+  <img class="logo" src="../../assets/images/logo.png" alt="">
+  <h1 class="textWhite">Join the Leafys community</h1>
+  <p style="color: rgb(7, 73, 7);" class="textgrey">Take your creation to the next level.</p>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm"  *ngIf="!isLoading">
+
+    <mat-form-field color="accent">
+      <input matInput type="username"  placeholder="Username" name="username" ngModel #usernameInput="ngModel" required username>
+      <mat-error *ngIf="usernameInput.invalid">Please enter valid a Username.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="email"  placeholder="E-Mail" name="email" ngModel #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter valid a E-Mail.</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field>
+       <input type='password' matInput placeholder="Password" name="password" ngModel #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter valid a Password.</mat-error>
+    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-checkbox class="chkBox" name="chk" ngModel #chk="ngModel" required >I agree all statements in&nbsp;</mat-checkbox><a class="chkBox" href="javascript:void(0)">Terms and Service</a>
+      </div>
+    </div>
+
+    <br>
+    <button  mat-raised-button color="accent" type="submit" *ngIf='!isLoading' [disabled]='chk.invalid'>Signup</button>
+
+
+
+  </form>
+</mat-card>
+</div>

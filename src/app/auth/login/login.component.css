@@ -1,0 +1,72 @@
+.wrapper{
+  position: relative;
+  height:100% !important;
+  background-image: url('../../../assets/images/bg5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+mat-form-field
+{
+  width: 50%;
+  display: inline;
+  justify-content: center;
+  padding: 10px;
+  color: #6B6A6A;
+
+}
+::ng-deep .mat-form-field-label{
+  color:#f2f2f2 !important;
+}
+
+.logo{
+  height: 6em;
+}
+.textWhite{
+  color: #F2F2F2;
+}
+.textgrey{
+  color: #6B6A6A;
+}
+
+
+mat-spinner
+{
+  margin: auto;
+}
+
+
+
+mat-card{
+  background:#181A1B !important;
+  padding: 15px 25px;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30.888%;
+}
+
+@media(max-width:980px){
+  mat-card {
+    width: 48.888%;
+    height: 80vh;
+
+  }
+
+
+}
+@media(max-width:768px){
+  mat-card {
+    width: 100%;
+    height: 80vh;
+
+  }
+  .wrapper{
+    height: calc(100vh - 56px);
+  }
+
+}
+

@@ -1,0 +1,82 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<!-- <mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+    <div class="post-image">
+      <a [href]="post.imagePath" download>
+      <img [src]="post.imagePath" [alt]="post.title">
+      </a>
+    </div>
+    <p>{{ post.content }}</p>
+    <mat-action-row *ngIf="userIsAuthenticated &&userId===post.creator">
+      <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion> -->
+
+<div class="searchWrapper">
+  <!-- <video autoplay muted loop id="myVideo">
+    <source src="../../../assets/images/Cave.mp4" type="video/mp4">
+  </video> -->
+  <div class="container Searchinner">
+
+    <div class="row mt-5">
+      <div class="col-md-6 mx-auto">
+            <div class="img-circle">
+              <img src="../../../assets/images/pic02.jpg" alt="">
+            </div>
+            <div class="user-title">
+              <h1>{{username}}</h1>
+            </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-md-6 mx-auto d-flex justify-content-center">
+            <span style="font-size: 2em;color:#388139;" class="material-icons">
+            aspect_ratio
+            </span>
+          <h1 class="cust-h1">My Media</h1>
+
+      </div>
+    </div>
+    <div class="row">
+      <input class="searchBox" type="text" placeholder="What are you looking for?" [(ngModel)]='filterString' />
+    </div>
+  </div>
+</div>
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<div class="columns">
+						<!-- Column 1 (horizontal, vertical, horizontal, vertical) -->
+							<div *ngFor="let post of posts | filter:filterString" class="image fit">
+                  <a [href]=""><img loading="lazy" [src]="post.imagePath" alt="" /></a>
+                 <div class="middle">
+                   <div class="d-flex  text-center">
+                     <div class=" mr-auto p-2 ">
+                      <button aria-readonly="true" readonly mat-raised-button class="btnName">{{post.title}}</button>
+                     </div>
+                    <div class="p-2">
+                      <button [routerLink]="['/edit',post._id]" mat-raised-button class="btnDownload">Edit</button>
+                    </div>
+                    <div  class="p-2 ">
+                      <button (click)="onDelete(post._id)" style="color: red;" mat-raised-button class="btnDownload">Delete</button>
+                    </div>
+                   </div>
+                  <div>
+                  </div>
+                </div>
+              </div>
+					</div>
+				</div>
+			</div>
+
+
+
+    <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
+
+    <!-- Footer -->
+

@@ -1,0 +1,169 @@
+    <title>Admin Panel</title>
+    <body style="background-image:url('../../assets/images/admin_bg.jpg') ;" class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+          <span>
+            <a style="color: lightgreen;text-decoration: none;" routerLink="/admin"><img class="logo" src="../../assets/images/logo.png" alt="">Leafys <sup>mini</sup>Admin Panel</a>
+          </span>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button (click)="adminLogout()" class="btn btn-primary" type="button"><i class="fa fa-sign-out"></i> Logout</button>
+                    </div>
+                </div>
+            </form>
+
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Mini Admin Panel</li>
+                        </ol>
+                        <div class="row ">
+                            <div class="col-xl-3 col-md-6 mx-auto">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Total Users: {{totalUsers}}</div>
+                                  </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 mx-auto">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Total Posts: {{totalPosts}}</div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-xl-3 col-md-6 mx-auto">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-12 text-center">
+                            <p class="display-1"><i class="fa fa-user mr-2"></i>All Users</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 mx-auto">
+                            <div class="input-group mb-3">
+                              <input style="border-color: green;" type="text" [(ngModel)]="filterUser" class="form-control" placeholder="Search Users" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="card mb-4" style="height: 500px;overflow: scroll;">
+                            <div class="card-header">
+                                <i class="fa fa-table mr-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>UserName</th>
+                                                <th>Email</th>
+                                                <th>ID</th>
+                                                <th>Ban/Unban</th>
+                                                <th>Delete</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let p of users | filter:filterUser">
+                                                <td>{{p.username}}</td>
+                                                <td>{{p.email}}</td>
+                                                <td>{{p._id}}</td>
+                                                <td>
+                                                  <button style="border-color: red;" (click)="banUser(p._id)" mat-stroked-button>Ban</button>
+                                                  <button style="border-color: lightblue;" (click)="UnbanUser(p._id)" mat-stroked-button>Unban</button>
+                                                </td>
+                                                <td><button style="border-color: red;" (click)="DeleteUser(p._id)" mat-stroked-button>Delete</button></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-12 text-center">
+                            <p class="display-1"><i class="fa fa-table mr-2"></i>All Image Uploads</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 mx-auto">
+                            <div class="input-group mb-3">
+                              <input style="border-color: green;" type="text" [(ngModel)]="filterImage" class="form-control" placeholder="Search Image Uploads" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            </div>
+                          </div>
+                        </div>
+
+
+
+                        <div class="card mb-4" style="height: 500px;overflow: scroll;">
+                          <div class="card-header">
+                              <i class="fa fa-table mr-2"></i>
+                              DataTable
+                          </div>
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                      <thead>
+                                          <tr>
+                                              <th>Image Title</th>
+                                              <th>Image Tags</th>
+                                              <th>Image Name</th>
+                                              <th>Image</th>
+                                              <th>Uploaded By</th>
+                                              <th>Post Id</th>
+                                              <th>Delete</th>
+
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor="let p of post | filter:filterImage">
+                                              <td>{{p.title}}</td>
+                                              <td>{{p.content}}</td>
+                                              <td>{{p.imageName}}</td>
+                                              <td class="imgWrap"><img loading="lazy" class="imgfit" [src]="p.imagePath" alt=""></td>
+                                              <td>{{p.creatorName}}</td>
+                                              <td>{{p._id}}</td>
+                                              <td><button style="border-color: red;" (click)="DeletePost(p._id)" mat-stroked-button>Delete</button></td>
+
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+
+                      </div>
+                    </div>
+
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Leafys.com 2020</div>
+                            <div>
+                                <a>Privacy Policy</a>
+                                &middot;
+                                <a>Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+    </body>
+

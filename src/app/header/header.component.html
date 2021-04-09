@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" *ngIf="_router.url !='/admin' && _router.url !='/admin_login'">
+  <span>
+    <a class="logoTitle" style="color: lightgreen;text-decoration: none;" routerLink="/"><img class="logo" src="../../assets/images/logo.png" alt="">Leafys</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf='!userIsAuthenticated'>
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf='!userIsAuthenticated'>
+      <a class="try" style="background: #189D72;" mat-button routerLink="/signup" routerLinkActive="mat-accent">Join Free</a>
+    </li>
+    <li *ngIf='userIsAuthenticated'>
+      <a style="background: #E82F52;border-radius: 20px;" mat-button (click)='onLogout()'>Logout</a>
+    </li>
+    <li *ngIf='userIsAuthenticated'>
+      <a style="background: #3A823B;border-radius: 20px;" mat-button routerLink="/create" routerLinkActive="mat-accent">Upload</a>
+    </li>
+    <li *ngIf='userIsAuthenticated'>
+      <a style="background: #2C642D;border-radius: 20px;" mat-button routerLink="/myuploads" routerLinkActive="mat-accent"> My Uploads</a>
+    </li>
+  </ul>
+</mat-toolbar>

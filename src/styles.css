@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+body { margin: 0;background-color: #1F2223; }
+
+html {
+  scrollbar-face-color: #646464;
+  scrollbar-base-color: #646464;
+  scrollbar-3dlight-color: #646464;
+  scrollbar-highlight-color: #646464;
+  scrollbar-track-color: #000;
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: #646464;
+  scrollbar-dark-shadow-color: #646464;
+}
+::-webkit-scrollbar { width: 8px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #000;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #646464;}
+::-webkit-resizer { background-color: #666;}
+
+router-outlet ~ * {
+  position: absolute;
+  width: 100%;
+  height:calc(100vh - 64px);
+}
+
+
+.mat-form-field-empty.mat-form-field-label {
+  color: #f2f2f2;
+}
+.mat-paginator-icon{
+  color: #3A823B !important;
+
+}
+.mat-focused .mat-form-field-underline .mat-form-field-ripple{
+  background-color: #3A823B !important;
+}
+
+
+.swal-modal {
+  background-color: #181A1B;
+  color: whitesmoke;
+}
+.swal-title{
+  color: rgb(156, 23, 23);
+}
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.swal-text{
+  color: whitesmoke;
+}
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.swal-button--cancel {
+  background-color:#007ACC ;
+  color: whitesmoke;
+}
+
+.swal-button--cancel:not([disabled]):hover{
+  background-color: #007ACC;
+}
+
+.swal-icon--success:after, .swal-icon--success:before{
+  background-color: #181A1B;
+}
+.swal-icon--success__hide-corners{
+  background-color: #181A1B;
+}
+
+.content-title{
+  color: #f2f2f2;
+
+}

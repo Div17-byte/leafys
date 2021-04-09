@@ -1,0 +1,39 @@
+<div class="uploadWrapper">
+  <mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+      <h1 class="content-title">Upload your creation</h1>
+      <p style="color: darkolivegreen;">Share your cretivity with others</p>
+      <mat-form-field>
+        <input matInput type="text" formControlName="title" placeholder="Image Title">
+        <mat-error *ngIf="form.get('title').invalid">Please enter a post title.</mat-error>
+      </mat-form-field>
+      <div class="midbtn_wrapper" style="text-align:center;">
+        <button style="color: #f2f2f2;padding: 10px;" class="midbtn" mat-stroked-button type="button" (click)="filePicker.click()">
+          <span style="color: green;font-size: 35px;" class="material-icons">arrow_circle_up</span>
+          Select
+        </button>
+        <input type="file" accept="image/*" #filePicker (change)="onImagePicked($event)">
+      </div>
+      <div class="image-preview w3-animate-opacity" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div>
+      <mat-form-field>
+        <textarea matInput rows="4" formControlName="content" placeholder="Image Description/Tag" [(ngModel)]='Tag'></textarea>
+        <mat-error *ngIf="form.get('content').invalid">Please enter a post Description.</mat-error>
+      </mat-form-field>
+      
+      <button (click)='setTag("#nature #forest #trees")' style="border-color:green ;color: green;"  class="btn_tag" mat-stroked-button type="button">#nature</button>
+      <button (click)='setTag("#wallpaper #images")' style="border-color:lightblue ;color: lightblue;" class="btn_tag" mat-stroked-button type="button">#wallpaper</button>
+      <button (click)='setTag("#games #videogames #gaming")'style="border-color:red ;color: red;" class="btn_tag" mat-stroked-button type="button">#Games</button>
+      <button (click)='setTag("#photography #girl #men #guy #photos")' style="border-color:lightpink ;color: lightpink;" class="btn_tag" mat-stroked-button type="button">#Photography</button>
+      <button (click)='setTag("#logs #icon #vector")' style="border-color:lightsalmon ;color: lightsalmon;" class="btn_tag" mat-stroked-button type="button">#Logos</button>
+      <button (click)='setTag("#music #piano #guitar #instrument")' style="border-color:lightseagreen ;color: lightseagreen;" class="btn_tag" mat-stroked-button type="button">#Music</button>
+      <button (click)='setTag("#food #hungry #eat #restaurant")' style="border-color:rgb(231, 253, 132) ;color:rgb(231, 253, 132);" class="btn_tag" mat-stroked-button type="button">#Food</button>
+      <button (click)='setTag("#cars #automobile #wheels #motorvehicle")' style="border-color:rgb(114, 85, 160) ;color:rgb(114, 85, 160)" class="btn_tag" mat-stroked-button type="button">#Cars</button>
+      <p style="margin: 2rem;" class="text-muted"><span style="color: red;">Note:</span>Please enter relevent Image Description/tags to make it easier to find</p>
+      <button mat-raised-button color="accent" type="submit">Upload Image</button>
+    </form>
+  </mat-card>
+</div>
+

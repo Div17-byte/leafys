@@ -1,0 +1,32 @@
+ul {
+  list-style: none;
+  padding: 0 ;
+  margin: 0;
+  display: flex;
+}
+ul>li{
+  padding: 0 5px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.6em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  background: #181A1B !important;
+
+}
+.logo{
+  padding: 10px 0px;
+  height: 3.5em;
+}
+.logoTitle{
+  font-size: 1em;
+}
+
+

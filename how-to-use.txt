@@ -1,0 +1,12 @@
+How to use
+----------
+
+Run "npm install" inside this project folder to install all dependencies.
+
+Make sure you use the latest version of the CLI (upgrade guide below)
+
+Run "node server.js in seprate terminal"
+
+Run "ng serve -0" to see the app in action (try "npm start" in case "ng serve" fails).
+
+
