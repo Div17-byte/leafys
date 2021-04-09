@@ -3,7 +3,7 @@ const multer = require("multer");
 const Post = require("../models/post");
 const checkAuth = require("../middleware/check-auth");
 const fs = require("fs");
-
+const path = require('path')
 const router = express.Router();
 
 const MIME_TYPE_MAP = {
@@ -19,7 +19,8 @@ const storage = multer.diskStorage({
     if (isValid) {
       error = null;
     }
-    cb(error, "./images");
+    cb(error, path.join(__dirname,'../images'));
+    console.log(path.join(__dirname,'../images'));
   },
   filename: (req, file, cb) => {
     const name = file.originalname
